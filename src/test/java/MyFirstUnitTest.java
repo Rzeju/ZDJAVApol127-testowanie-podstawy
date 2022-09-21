@@ -1,13 +1,13 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MyFirstUnitTest { // klasa testowa
 
     //ASSERT EQUALS EXAMPLES
 
-    @Test // adnotacja oznaczająca, że motdoa jest testem
+    @Test
+        // adnotacja oznaczająca, że motdoa jest testem
     void shouldMultiplyTwoNumbers() { //sygnatura metody testowej
         //given //warunki początkowe
         final double firstNumber = 2;
@@ -27,7 +27,7 @@ class MyFirstUnitTest { // klasa testowa
         final String lastName = "Andrzejak";
 
         //when //wykonanie testu
-        boolean  multiplicationResult = firstName.equals(lastName);
+        boolean multiplicationResult = firstName.equals(lastName);
 
         //then // sprawdzenie testu i wynik
         assertEquals(false, multiplicationResult);
@@ -44,7 +44,8 @@ class MyFirstUnitTest { // klasa testowa
         assertEquals("Ala ma kota", result);
     }
 
-    @Test // adnotacja oznaczająca, że metoda jest testem
+    @Test
+        // adnotacja oznaczająca, że metoda jest testem
     void shouldCalculateRestFromDivision() { // sygnatura metody testowej w przeciwienstwie do JUnit4 nie musi być publiczna
         // given // warunki początkowe
         final double firstNumber = 3;
@@ -74,6 +75,24 @@ class MyFirstUnitTest { // klasa testowa
 
         //then
         assertTrue(result);
+    }
+
+    //Testing fail()
+    @Test
+    void failTest() {
+        //given
+        String someWord = "Hello";
+
+        //when
+        if (someWord.equals("Hello")) {
+            assertEquals("Hello", someWord);
+        } else {
+            fail();
+        }
+
+        //then
+        //assertTrue(result);
+
     }
 
 }
