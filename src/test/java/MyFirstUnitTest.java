@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyFirstUnitTest { // klasa testowa
@@ -34,7 +37,7 @@ class MyFirstUnitTest { // klasa testowa
     }
 
     @Test
-    void nameTest() {
+    void nameTest() { //tetsuje łączenie Stringów
         final String x = "Ala";
         final String y = " ma ";
         final String z = "kota";
@@ -95,4 +98,36 @@ class MyFirstUnitTest { // klasa testowa
 
     }
 
+    //MORE ASSERTIONS EXAMPLES
+    @Test
+    void bothArraysShouldBeEqual() { //sprawdzam czy podane tablice są jednakowe
+        //given
+        final int[] intsA = {1, 2, 3};
+        final int[] intsB = {1, 2, 3};
+
+        //then
+        assertArrayEquals(intsA, intsB, "Elements in arrays are not equals");
+    }
+
+    @Test
+    void twoListsShouldBeEqual() { //sprawdza czy podane listy są jednakowe
+        //given
+        List<Integer> intsA = Arrays.asList(1, 2, 3);
+        List<Integer> intsB = List.of(1, 2, 3);
+
+        //then
+        assertIterableEquals(intsA, intsB);
+    }
+
+    @Test
+    void bothListsShouldBeEqual() {
+        //sprawdza czy lista spełnia wszystkie kryteria
+        // zawarte w metodzie "assertAll'
+        List<Integer> ints = Arrays.asList(1, 3, 2);
+
+        assertAll(
+                () -> assertEquals(3, ints.size()),
+                () -> assertEquals(2, ints.get(2))
+        );
+    }
 }
