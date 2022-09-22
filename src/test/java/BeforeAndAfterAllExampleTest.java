@@ -1,21 +1,22 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class BeforeAndAfterAllExampleTest {
 
-    int counter = 0;
+    static int  counter = 0;
 
-    @BeforeEach
-    void setUp() {
-        System.out.println("Ten komunikat wyświetli się przed wykonaniem każdej z metod testujących");
-        counter++; // counter = counter + 1; inkrementacja zmiennej counter
+    @BeforeAll
+    static void setUpTestCase() {
+        System.out.println("Ten komunikat wyświetli się raz przed wykonaniem wszystkich metod testujących");
+        counter++;
     }
 
-    @AfterEach
-    void tearDown() {
-        System.out.println("Ten komunikat wyświetli się po wykonaniu każdej z metod testujących");
-        System.out.println("Wykonało się tyle testów -> " + counter);
+    @AfterAll
+    static void tearDownTestCase() {
+        System.out.println("Ten komunikat wyświetli się raz po wykonaniu wszystkich metod testujących");
+        System.out.println("Licznik wynosi -> " + counter);
+
     }
 
     @Test
@@ -37,5 +38,4 @@ public class BeforeAndAfterAllExampleTest {
     void fourthTest() {
         System.out.println("Wykonuje test czwarty...");
     }
-
 }
