@@ -15,6 +15,7 @@ public class BeforeAndAfterAllExampleTest {
     @AfterEach
     void tearDown() {
         System.out.println("Ten komunikat wyświetli się po wykonaniu każdej z metod testujących");
+        System.out.println("Wykonało się tyle testów -> " + counter);
     }
 
     @Test
