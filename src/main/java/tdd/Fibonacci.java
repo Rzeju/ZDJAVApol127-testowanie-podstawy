@@ -28,4 +28,15 @@ public class Fibonacci {
 
         return result;
     }
+
+    public static int rafactoredMethod(int element) {
+        if (element == 0) {
+            return 0;
+        }
+        if (element == 1 || element == 2) {
+            return 1;
+        }
+
+        return rafactoredMethod(element - 1) + rafactoredMethod(element - 2);
+    }
 }
